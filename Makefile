@@ -15,3 +15,17 @@ test:
 clean:
 	@echo "cleaning up..."
 	@rm -rf ./bin
+
+# apply all migrations
+migrate-up:
+	@go run ./cmd/migrator \
+		--config-path=./config/storage.yaml \
+		--migrations-path=./migrations \
+		--command=up
+
+# rollback the last migration
+migrate-down:
+	@go run ./cmd/migrator \
+		--config-path=./config/storage.yaml \
+		--migrations-path=./migrations \
+		--command=down
