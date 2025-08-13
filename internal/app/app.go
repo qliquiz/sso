@@ -12,8 +12,8 @@ type App struct {
 	GrpcApp *grpcapp.App
 }
 
-func NewApp(log *slog.Logger, grpcPort int, storagePath string, tokenTTL time.Duration) *App {
-	storage, err := psql.New(storagePath)
+func New(log *slog.Logger, grpcPort int, dsn string, tokenTTL time.Duration) *App {
+	storage, err := psql.New(dsn)
 	if err != nil {
 		panic(err)
 	}

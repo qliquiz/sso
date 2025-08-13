@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log/slog"
 	"os"
 	"os/signal"
@@ -24,7 +25,16 @@ func main() {
 		log.Info("starting application", slog.Any("config", cfg))
 	}
 
-	application := app.NewApp(log, cfg.GRPC.Port, cfg.StoragePath, cfg.TokenTTL)
+	storageDSN := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s",
+		cfg.Storage.Host,
+		cfg.Storage.Port,
+		cfg.Storage.User,
+		cfg.Storage.Password,
+		cfg.Storage.DBName,
+		cfg.Storage.SSLMode,
+	)
+
+	application := app.New(log, cfg.GRPC.Port, storageDSN, cfg.TokenTTL)
 	go application.GrpcApp.MustRun()
 
 	stop := make(chan os.Signal, 1)

@@ -61,3 +61,17 @@ func (a *App) Stop() {
 
 	a.gRPCServer.GracefulStop()
 }
+
+// Serve is a `run` method for a test app
+func (a *App) Serve(l net.Listener) error {
+	const op = "grpc.app.Serve"
+	log := a.log.With(slog.String("op", op))
+
+	log.Info("grpc server is running on dynamic address", slog.String("address", l.Addr().String()))
+
+	if err := a.gRPCServer.Serve(l); err != nil {
+		return fmt.Errorf("%s: %w", op, err)
+	}
+
+	return nil
+}

@@ -7,24 +7,12 @@ import (
 	"gopkg.in/yaml.v3"
 	"log"
 	"os"
+	"sso/internal/config"
 
 	"github.com/golang-migrate/migrate/v4"
 	_ "github.com/golang-migrate/migrate/v4/database/postgres"
 	_ "github.com/golang-migrate/migrate/v4/source/file"
 )
-
-type Config struct {
-	Storage StorageConfig `yaml:"storage"`
-}
-
-type StorageConfig struct {
-	Host     string `yaml:"host"`
-	Port     string `yaml:"port"`
-	User     string `yaml:"user"`
-	Password string `yaml:"password"`
-	DBName   string `yaml:"dbname"`
-	SSLMode  string `yaml:"sslmode"`
-}
 
 func main() {
 	var configPath, migrationsPath, migrationsTable, command string
@@ -44,7 +32,7 @@ func main() {
 		log.Fatalf("failed to read config file: %v", err)
 	}
 
-	var cfg Config
+	var cfg config.Config
 	if err = yaml.Unmarshal(configData, &cfg); err != nil {
 		log.Fatalf("failed to parse config file: %v", err)
 	}
@@ -56,7 +44,7 @@ func main() {
 		cfg.Storage.Port,
 		cfg.Storage.DBName,
 		cfg.Storage.SSLMode,
-		migrationsTable,
+		cfg.Storage.MigTable,
 	)
 
 	m, err := migrate.New("file://"+migrationsPath, dbURL)

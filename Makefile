@@ -10,7 +10,7 @@ run: build
 
 test:
 	@echo "running tests..."
-	@go test ./...
+	@go test ./tests
 
 clean:
 	@echo "cleaning up..."
@@ -19,13 +19,25 @@ clean:
 # apply all migrations
 migrate-up:
 	@go run ./cmd/migrator \
-		--config-path=./config/storage.yaml \
+		--config-path=./config/local.yaml \
 		--migrations-path=./migrations \
 		--command=up
 
 # rollback the last migration
 migrate-down:
 	@go run ./cmd/migrator \
-		--config-path=./config/storage.yaml \
+		--config-path=./config/local.yaml \
 		--migrations-path=./migrations \
+		--command=down
+
+migrate-tests-up:
+	@go run ./cmd/migrator \
+		--config-path=./config/test.yaml \
+		--migrations-path=./tests/migrations \
+		--command=up
+
+migrate-tests-down:
+	@go run ./cmd/migrator \
+		--config-path=./config/test.yaml \
+		--migrations-path=./tests/migrations \
 		--command=down
