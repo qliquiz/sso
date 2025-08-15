@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
+	"github.com/lib/pq"
 	_ "github.com/lib/pq"
 	"sso/internal/domain/models"
 	"sso/internal/storage"
@@ -40,6 +41,10 @@ func (s *Storage) SaveUser(ctx context.Context, email string, passHash []byte) (
 	var id int64
 	err = stmt.QueryRowContext(ctx, email, passHash).Scan(&id)
 	if err != nil {
+		var pqErr *pq.Error
+		if errors.As(err, &pqErr) && pqErr.Code == "23505" {
+			return 0, storage.ErrUserAlreadyExists
+		}
 		return 0, fmt.Errorf("%s: %w", op, err)
 	}
 
