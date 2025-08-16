@@ -1,4 +1,4 @@
-env: "local" # dev, prod
+env: "local"
 token_ttl: 1h
 
 grpc:
@@ -10,6 +10,31 @@ storage:
   port: "5432"
   user: "postgres"
   password: "qwerty"
-  dbname: "sso"
+  dbname: "sso2"
   sslmode: "disable"
   migtable: "migrations"
+
+gateway:
+  port: 8080
+
+security:
+  issuer: "https://auth.local"
+  access_ttl: "10m"
+  refresh_ttl: "720h"         # 30d
+  refresh_rotation: true
+  mfa_required_for_admin: true
+  password_min_entropy: 28
+
+keys:
+  rotation_period: "720h"     # менять ключ каждые 30 дней
+  overlap: "168h"             # держать старый активным 7 дней
+  active_kid: ""              # если пусто — генерить
+
+smtp:
+  from: "no-reply@auth.local"
+  host: "127.0.0.1"
+  port: 1025
+
+rate_limit:
+  login_per_ip_per_minute: 30
+  login_per_user_per_minute: 10

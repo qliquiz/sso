@@ -1,0 +1,21 @@
+syntax = "proto3";
+package mfa;
+option go_package = "github.com/qliquiz/sso2/api/gen/mfa;mfa";
+
+service MFAService {
+  rpc EnableMFA(EnableMFARequest) returns (EnableMFAResponse);
+  rpc VerifyMFA(VerifyMFARequest) returns (VerifyMFAResponse);
+  rpc DisableMFA(DisableMFARequest) returns (DisableMFAResponse);
+}
+
+message EnableMFARequest {string user_id = 1;}
+message EnableMFAResponse {
+  string secret = 1; // для генерации QR
+  string qr_code_base64 = 2;
+}
+
+message VerifyMFARequest {string user_id = 1; string code = 2;}
+message VerifyMFAResponse {bool success = 1;}
+
+message DisableMFARequest {string user_id = 1;}
+message DisableMFAResponse {}

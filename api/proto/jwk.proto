@@ -1,0 +1,21 @@
+syntax = "proto3";
+package jwk;
+option go_package = "github.com/qliquiz/sso2/api/gen/jwk;jwk";
+
+service JWKService {
+  rpc GetJWKS(GetJWKSRequest) returns (GetJWKSResponse);
+}
+
+message GetJWKSRequest {}
+message GetJWKSResponse {
+  repeated JWK keys = 1;
+}
+
+message JWK {
+  string kid = 1; // key id
+  string kty = 2; // key type, e.g. "RSA"
+  string alg = 3; // algorithm, e.g. "RS256"
+  string use = 4; // "sig"
+  string n = 5;   // modulus
+  string e = 6;   // exponent
+}

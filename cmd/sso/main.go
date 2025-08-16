@@ -17,6 +17,11 @@ const (
 	envProd  = "prod"
 )
 
+// TODO: Вынести JWT и ротацию в internal/jwk + internal/authn/jwt.go, добавить JWKS сервер (через http/grpc-gateway)
+// TODO: Разделить services/auth (аутентика) и services/identity (профиль/пароль/сброс)
+// TODO: Добавить permissions сервис и gRPC-интерцептор для authz
+// TODO: В storage/psql разнести репозитории (users/sessions/tokens/permissions/jwk)
+// TODO: Тесты: сделать E2E suite, который крутит миграции и чистит БД между тестами
 func main() {
 	cfg := config.MustLoad()
 

@@ -1,0 +1,36 @@
+syntax = "proto3";
+package oauth;
+option go_package = "github.com/qliquiz/sso2/api/gen/oauth;oauth";
+
+service OAuthService {
+  rpc Authorize(AuthorizeRequest) returns (AuthorizeResponse);
+  rpc Token(TokenRequest) returns (TokenResponse);
+}
+
+message AuthorizeRequest {
+  string client_id = 1;
+  string redirect_uri = 2;
+  string response_type = 3; // "code"
+  string scope = 4;
+  string state = 5;
+}
+
+message AuthorizeResponse {
+  string code = 1; // authorization code
+}
+
+message TokenRequest {
+  string grant_type = 1; // "authorization_code" | "refresh_token"
+  string code = 2;
+  string redirect_uri = 3;
+  string client_id = 4;
+  string client_secret = 5;
+  string refresh_token = 6;
+}
+
+message TokenResponse {
+  string access_token = 1;
+  string token_type = 2;
+  int64 expires_in = 3;
+  string refresh_token = 4;
+}
