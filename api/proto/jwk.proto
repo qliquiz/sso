@@ -1,6 +1,6 @@
 syntax = "proto3";
-package jwk;
-option go_package = "github.com/qliquiz/sso/api/gen/jwk;jwk";
+package auth;
+option go_package = "github.com/qliquiz/sso/api/gen/auth;auth";
 
 service JWKService {
   rpc GetJWKS(GetJWKSRequest) returns (GetJWKSResponse);

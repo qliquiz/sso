@@ -4,7 +4,7 @@
 // - protoc             v5.29.3
 // source: admin.proto
 
-package admin
+package auth
 
 import (
 	context "context"
@@ -19,14 +19,14 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AdminService_ListUsers_FullMethodName        = "/admin.AdminService/ListUsers"
-	AdminService_GetUser_FullMethodName          = "/admin.AdminService/GetUser"
-	AdminService_UpdateUser_FullMethodName       = "/admin.AdminService/UpdateUser"
-	AdminService_DeleteUser_FullMethodName       = "/admin.AdminService/DeleteUser"
-	AdminService_AssignRole_FullMethodName       = "/admin.AdminService/AssignRole"
-	AdminService_RevokeRole_FullMethodName       = "/admin.AdminService/RevokeRole"
-	AdminService_GrantPermission_FullMethodName  = "/admin.AdminService/GrantPermission"
-	AdminService_RevokePermission_FullMethodName = "/admin.AdminService/RevokePermission"
+	AdminService_ListUsers_FullMethodName        = "/auth.AdminService/ListUsers"
+	AdminService_GetUser_FullMethodName          = "/auth.AdminService/GetUser"
+	AdminService_UpdateUser_FullMethodName       = "/auth.AdminService/UpdateUser"
+	AdminService_DeleteUser_FullMethodName       = "/auth.AdminService/DeleteUser"
+	AdminService_AssignRole_FullMethodName       = "/auth.AdminService/AssignRole"
+	AdminService_RevokeRole_FullMethodName       = "/auth.AdminService/RevokeRole"
+	AdminService_GrantPermission_FullMethodName  = "/auth.AdminService/GrantPermission"
+	AdminService_RevokePermission_FullMethodName = "/auth.AdminService/RevokePermission"
 )
 
 // AdminServiceClient is the client API for AdminService service.
@@ -346,7 +346,7 @@ func _AdminService_RevokePermission_Handler(srv interface{}, ctx context.Context
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var AdminService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.AdminService",
+	ServiceName: "auth.AdminService",
 	HandlerType: (*AdminServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

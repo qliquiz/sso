@@ -1,6 +1,6 @@
 syntax = "proto3";
-package oauth;
-option go_package = "github.com/qliquiz/sso/api/gen/oauth;oauth";
+package auth;
+option go_package = "github.com/qliquiz/sso/api/gen/auth;auth";
 
 service OAuthService {
   rpc Authorize(AuthorizeRequest) returns (AuthorizeResponse);

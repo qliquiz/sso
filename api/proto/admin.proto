@@ -1,6 +1,6 @@
 syntax = "proto3";
-package admin;
-option go_package = "github.com/qliquiz/sso/api/gen/admin;admin";
+package auth;
+option go_package = "github.com/qliquiz/sso/api/gen/auth;auth";
 
 service AdminService {
   rpc ListUsers(ListUsersRequest) returns (ListUsersResponse);

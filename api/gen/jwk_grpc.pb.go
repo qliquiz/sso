@@ -4,7 +4,7 @@
 // - protoc             v5.29.3
 // source: jwk.proto
 
-package jwk
+package auth
 
 import (
 	context "context"
@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	JWKService_GetJWKS_FullMethodName = "/jwk.JWKService/GetJWKS"
+	JWKService_GetJWKS_FullMethodName = "/auth.JWKService/GetJWKS"
 )
 
 // JWKServiceClient is the client API for JWKService service.
@@ -108,7 +108,7 @@ func _JWKService_GetJWKS_Handler(srv interface{}, ctx context.Context, dec func(
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var JWKService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "jwk.JWKService",
+	ServiceName: "auth.JWKService",
 	HandlerType: (*JWKServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

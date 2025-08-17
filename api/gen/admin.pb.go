@@ -4,7 +4,7 @@
 // 	protoc        v5.29.3
 // source: admin.proto
 
-package admin
+package auth
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -797,27 +797,30 @@ var File_admin_proto protoreflect.FileDescriptor
 
 const file_admin_proto_rawDesc = "" +
 	"\n" +
-	"\vadmin.proto\x12\x05admin\"d\n" +
+	"\vadmin.proto\x12\x04auth\"d\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x14\n" +
 	"\x05roles\x18\x03 \x03(\tR\x05roles\x12 \n" +
 	"\vpermissions\x18\x04 \x03(\tR\vpermissions\"\x12\n" +
-	"\x10ListUsersRequest\"6\n" +
-	"\x11ListUsersResponse\x12!\n" +
-	"\x05users\x18\x01 \x03(\v2\v.admin.UserR\x05users\")\n" +
+	"\x10ListUsersRequest\"5\n" +
+	"\x11ListUsersResponse\x12 \n" +
+	"\x05users\x18\x01 \x03(\v2\n" +
+	".auth.UserR\x05users\")\n" +
 	"\x0eGetUserRequest\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\tR\x06userId\"2\n" +
-	"\x0fGetUserResponse\x12\x1f\n" +
-	"\x04user\x18\x01 \x01(\v2\v.admin.UserR\x04user\"\x7f\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userId\"1\n" +
+	"\x0fGetUserResponse\x12\x1e\n" +
+	"\x04user\x18\x01 \x01(\v2\n" +
+	".auth.UserR\x04user\"\x7f\n" +
 	"\x11UpdateUserRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x19\n" +
 	"\x05email\x18\x02 \x01(\tH\x00R\x05email\x88\x01\x01\x12\x1f\n" +
 	"\bdisabled\x18\x03 \x01(\bH\x01R\bdisabled\x88\x01\x01B\b\n" +
 	"\x06_emailB\v\n" +
-	"\t_disabled\"5\n" +
-	"\x12UpdateUserResponse\x12\x1f\n" +
-	"\x04user\x18\x01 \x01(\v2\v.admin.UserR\x04user\",\n" +
+	"\t_disabled\"4\n" +
+	"\x12UpdateUserResponse\x12\x1e\n" +
+	"\x04user\x18\x01 \x01(\v2\n" +
+	".auth.UserR\x04user\",\n" +
 	"\x11DeleteUserRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\"\x14\n" +
 	"\x12DeleteUserResponse\"@\n" +
@@ -840,20 +843,20 @@ const file_admin_proto_rawDesc = "" +
 	"\n" +
 	"permission\x18\x02 \x01(\tR\n" +
 	"permission\"\x1a\n" +
-	"\x18RevokePermissionResponse2\xbb\x04\n" +
-	"\fAdminService\x12>\n" +
-	"\tListUsers\x12\x17.admin.ListUsersRequest\x1a\x18.admin.ListUsersResponse\x128\n" +
-	"\aGetUser\x12\x15.admin.GetUserRequest\x1a\x16.admin.GetUserResponse\x12A\n" +
+	"\x18RevokePermissionResponse2\xab\x04\n" +
+	"\fAdminService\x12<\n" +
+	"\tListUsers\x12\x16.auth.ListUsersRequest\x1a\x17.auth.ListUsersResponse\x126\n" +
+	"\aGetUser\x12\x14.auth.GetUserRequest\x1a\x15.auth.GetUserResponse\x12?\n" +
 	"\n" +
-	"UpdateUser\x12\x18.admin.UpdateUserRequest\x1a\x19.admin.UpdateUserResponse\x12A\n" +
+	"UpdateUser\x12\x17.auth.UpdateUserRequest\x1a\x18.auth.UpdateUserResponse\x12?\n" +
 	"\n" +
-	"DeleteUser\x12\x18.admin.DeleteUserRequest\x1a\x19.admin.DeleteUserResponse\x12A\n" +
+	"DeleteUser\x12\x17.auth.DeleteUserRequest\x1a\x18.auth.DeleteUserResponse\x12?\n" +
 	"\n" +
-	"AssignRole\x12\x18.admin.AssignRoleRequest\x1a\x19.admin.AssignRoleResponse\x12A\n" +
+	"AssignRole\x12\x17.auth.AssignRoleRequest\x1a\x18.auth.AssignRoleResponse\x12?\n" +
 	"\n" +
-	"RevokeRole\x12\x18.admin.RevokeRoleRequest\x1a\x19.admin.RevokeRoleResponse\x12P\n" +
-	"\x0fGrantPermission\x12\x1d.admin.GrantPermissionRequest\x1a\x1e.admin.GrantPermissionResponse\x12S\n" +
-	"\x10RevokePermission\x12\x1e.admin.RevokePermissionRequest\x1a\x1f.admin.RevokePermissionResponseB,Z*github.com/qliquiz/sso/api/gen/admin;adminb\x06proto3"
+	"RevokeRole\x12\x17.auth.RevokeRoleRequest\x1a\x18.auth.RevokeRoleResponse\x12N\n" +
+	"\x0fGrantPermission\x12\x1c.auth.GrantPermissionRequest\x1a\x1d.auth.GrantPermissionResponse\x12Q\n" +
+	"\x10RevokePermission\x12\x1d.auth.RevokePermissionRequest\x1a\x1e.auth.RevokePermissionResponseB*Z(github.com/qliquiz/sso/api/gen/auth;authb\x06proto3"
 
 var (
 	file_admin_proto_rawDescOnce sync.Once
@@ -869,44 +872,44 @@ func file_admin_proto_rawDescGZIP() []byte {
 
 var file_admin_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
 var file_admin_proto_goTypes = []any{
-	(*User)(nil),                     // 0: admin.User
-	(*ListUsersRequest)(nil),         // 1: admin.ListUsersRequest
-	(*ListUsersResponse)(nil),        // 2: admin.ListUsersResponse
-	(*GetUserRequest)(nil),           // 3: admin.GetUserRequest
-	(*GetUserResponse)(nil),          // 4: admin.GetUserResponse
-	(*UpdateUserRequest)(nil),        // 5: admin.UpdateUserRequest
-	(*UpdateUserResponse)(nil),       // 6: admin.UpdateUserResponse
-	(*DeleteUserRequest)(nil),        // 7: admin.DeleteUserRequest
-	(*DeleteUserResponse)(nil),       // 8: admin.DeleteUserResponse
-	(*AssignRoleRequest)(nil),        // 9: admin.AssignRoleRequest
-	(*AssignRoleResponse)(nil),       // 10: admin.AssignRoleResponse
-	(*RevokeRoleRequest)(nil),        // 11: admin.RevokeRoleRequest
-	(*RevokeRoleResponse)(nil),       // 12: admin.RevokeRoleResponse
-	(*GrantPermissionRequest)(nil),   // 13: admin.GrantPermissionRequest
-	(*GrantPermissionResponse)(nil),  // 14: admin.GrantPermissionResponse
-	(*RevokePermissionRequest)(nil),  // 15: admin.RevokePermissionRequest
-	(*RevokePermissionResponse)(nil), // 16: admin.RevokePermissionResponse
+	(*User)(nil),                     // 0: auth.User
+	(*ListUsersRequest)(nil),         // 1: auth.ListUsersRequest
+	(*ListUsersResponse)(nil),        // 2: auth.ListUsersResponse
+	(*GetUserRequest)(nil),           // 3: auth.GetUserRequest
+	(*GetUserResponse)(nil),          // 4: auth.GetUserResponse
+	(*UpdateUserRequest)(nil),        // 5: auth.UpdateUserRequest
+	(*UpdateUserResponse)(nil),       // 6: auth.UpdateUserResponse
+	(*DeleteUserRequest)(nil),        // 7: auth.DeleteUserRequest
+	(*DeleteUserResponse)(nil),       // 8: auth.DeleteUserResponse
+	(*AssignRoleRequest)(nil),        // 9: auth.AssignRoleRequest
+	(*AssignRoleResponse)(nil),       // 10: auth.AssignRoleResponse
+	(*RevokeRoleRequest)(nil),        // 11: auth.RevokeRoleRequest
+	(*RevokeRoleResponse)(nil),       // 12: auth.RevokeRoleResponse
+	(*GrantPermissionRequest)(nil),   // 13: auth.GrantPermissionRequest
+	(*GrantPermissionResponse)(nil),  // 14: auth.GrantPermissionResponse
+	(*RevokePermissionRequest)(nil),  // 15: auth.RevokePermissionRequest
+	(*RevokePermissionResponse)(nil), // 16: auth.RevokePermissionResponse
 }
 var file_admin_proto_depIdxs = []int32{
-	0,  // 0: admin.ListUsersResponse.users:type_name -> admin.User
-	0,  // 1: admin.GetUserResponse.user:type_name -> admin.User
-	0,  // 2: admin.UpdateUserResponse.user:type_name -> admin.User
-	1,  // 3: admin.AdminService.ListUsers:input_type -> admin.ListUsersRequest
-	3,  // 4: admin.AdminService.GetUser:input_type -> admin.GetUserRequest
-	5,  // 5: admin.AdminService.UpdateUser:input_type -> admin.UpdateUserRequest
-	7,  // 6: admin.AdminService.DeleteUser:input_type -> admin.DeleteUserRequest
-	9,  // 7: admin.AdminService.AssignRole:input_type -> admin.AssignRoleRequest
-	11, // 8: admin.AdminService.RevokeRole:input_type -> admin.RevokeRoleRequest
-	13, // 9: admin.AdminService.GrantPermission:input_type -> admin.GrantPermissionRequest
-	15, // 10: admin.AdminService.RevokePermission:input_type -> admin.RevokePermissionRequest
-	2,  // 11: admin.AdminService.ListUsers:output_type -> admin.ListUsersResponse
-	4,  // 12: admin.AdminService.GetUser:output_type -> admin.GetUserResponse
-	6,  // 13: admin.AdminService.UpdateUser:output_type -> admin.UpdateUserResponse
-	8,  // 14: admin.AdminService.DeleteUser:output_type -> admin.DeleteUserResponse
-	10, // 15: admin.AdminService.AssignRole:output_type -> admin.AssignRoleResponse
-	12, // 16: admin.AdminService.RevokeRole:output_type -> admin.RevokeRoleResponse
-	14, // 17: admin.AdminService.GrantPermission:output_type -> admin.GrantPermissionResponse
-	16, // 18: admin.AdminService.RevokePermission:output_type -> admin.RevokePermissionResponse
+	0,  // 0: auth.ListUsersResponse.users:type_name -> auth.User
+	0,  // 1: auth.GetUserResponse.user:type_name -> auth.User
+	0,  // 2: auth.UpdateUserResponse.user:type_name -> auth.User
+	1,  // 3: auth.AdminService.ListUsers:input_type -> auth.ListUsersRequest
+	3,  // 4: auth.AdminService.GetUser:input_type -> auth.GetUserRequest
+	5,  // 5: auth.AdminService.UpdateUser:input_type -> auth.UpdateUserRequest
+	7,  // 6: auth.AdminService.DeleteUser:input_type -> auth.DeleteUserRequest
+	9,  // 7: auth.AdminService.AssignRole:input_type -> auth.AssignRoleRequest
+	11, // 8: auth.AdminService.RevokeRole:input_type -> auth.RevokeRoleRequest
+	13, // 9: auth.AdminService.GrantPermission:input_type -> auth.GrantPermissionRequest
+	15, // 10: auth.AdminService.RevokePermission:input_type -> auth.RevokePermissionRequest
+	2,  // 11: auth.AdminService.ListUsers:output_type -> auth.ListUsersResponse
+	4,  // 12: auth.AdminService.GetUser:output_type -> auth.GetUserResponse
+	6,  // 13: auth.AdminService.UpdateUser:output_type -> auth.UpdateUserResponse
+	8,  // 14: auth.AdminService.DeleteUser:output_type -> auth.DeleteUserResponse
+	10, // 15: auth.AdminService.AssignRole:output_type -> auth.AssignRoleResponse
+	12, // 16: auth.AdminService.RevokeRole:output_type -> auth.RevokeRoleResponse
+	14, // 17: auth.AdminService.GrantPermission:output_type -> auth.GrantPermissionResponse
+	16, // 18: auth.AdminService.RevokePermission:output_type -> auth.RevokePermissionResponse
 	11, // [11:19] is the sub-list for method output_type
 	3,  // [3:11] is the sub-list for method input_type
 	3,  // [3:3] is the sub-list for extension type_name

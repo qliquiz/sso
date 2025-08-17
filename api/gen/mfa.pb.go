@@ -4,7 +4,7 @@
 // 	protoc        v5.29.3
 // source: mfa.proto
 
-package mfa
+package auth
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -297,7 +297,7 @@ var File_mfa_proto protoreflect.FileDescriptor
 
 const file_mfa_proto_rawDesc = "" +
 	"\n" +
-	"\tmfa.proto\x12\x03mfa\"+\n" +
+	"\tmfa.proto\x12\x04auth\"+\n" +
 	"\x10EnableMFARequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\"Q\n" +
 	"\x11EnableMFAResponse\x12\x16\n" +
@@ -310,13 +310,13 @@ const file_mfa_proto_rawDesc = "" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\",\n" +
 	"\x11DisableMFARequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\"\x14\n" +
-	"\x12DisableMFAResponse2\xc3\x01\n" +
+	"\x12DisableMFAResponse2\xc9\x01\n" +
 	"\n" +
-	"MFAService\x12:\n" +
-	"\tEnableMFA\x12\x15.mfa.EnableMFARequest\x1a\x16.mfa.EnableMFAResponse\x12:\n" +
-	"\tVerifyMFA\x12\x15.mfa.VerifyMFARequest\x1a\x16.mfa.VerifyMFAResponse\x12=\n" +
+	"MFAService\x12<\n" +
+	"\tEnableMFA\x12\x16.auth.EnableMFARequest\x1a\x17.auth.EnableMFAResponse\x12<\n" +
+	"\tVerifyMFA\x12\x16.auth.VerifyMFARequest\x1a\x17.auth.VerifyMFAResponse\x12?\n" +
 	"\n" +
-	"DisableMFA\x12\x16.mfa.DisableMFARequest\x1a\x17.mfa.DisableMFAResponseB(Z&github.com/qliquiz/sso/api/gen/mfa;mfab\x06proto3"
+	"DisableMFA\x12\x17.auth.DisableMFARequest\x1a\x18.auth.DisableMFAResponseB*Z(github.com/qliquiz/sso/api/gen/auth;authb\x06proto3"
 
 var (
 	file_mfa_proto_rawDescOnce sync.Once
@@ -332,20 +332,20 @@ func file_mfa_proto_rawDescGZIP() []byte {
 
 var file_mfa_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_mfa_proto_goTypes = []any{
-	(*EnableMFARequest)(nil),   // 0: mfa.EnableMFARequest
-	(*EnableMFAResponse)(nil),  // 1: mfa.EnableMFAResponse
-	(*VerifyMFARequest)(nil),   // 2: mfa.VerifyMFARequest
-	(*VerifyMFAResponse)(nil),  // 3: mfa.VerifyMFAResponse
-	(*DisableMFARequest)(nil),  // 4: mfa.DisableMFARequest
-	(*DisableMFAResponse)(nil), // 5: mfa.DisableMFAResponse
+	(*EnableMFARequest)(nil),   // 0: auth.EnableMFARequest
+	(*EnableMFAResponse)(nil),  // 1: auth.EnableMFAResponse
+	(*VerifyMFARequest)(nil),   // 2: auth.VerifyMFARequest
+	(*VerifyMFAResponse)(nil),  // 3: auth.VerifyMFAResponse
+	(*DisableMFARequest)(nil),  // 4: auth.DisableMFARequest
+	(*DisableMFAResponse)(nil), // 5: auth.DisableMFAResponse
 }
 var file_mfa_proto_depIdxs = []int32{
-	0, // 0: mfa.MFAService.EnableMFA:input_type -> mfa.EnableMFARequest
-	2, // 1: mfa.MFAService.VerifyMFA:input_type -> mfa.VerifyMFARequest
-	4, // 2: mfa.MFAService.DisableMFA:input_type -> mfa.DisableMFARequest
-	1, // 3: mfa.MFAService.EnableMFA:output_type -> mfa.EnableMFAResponse
-	3, // 4: mfa.MFAService.VerifyMFA:output_type -> mfa.VerifyMFAResponse
-	5, // 5: mfa.MFAService.DisableMFA:output_type -> mfa.DisableMFAResponse
+	0, // 0: auth.MFAService.EnableMFA:input_type -> auth.EnableMFARequest
+	2, // 1: auth.MFAService.VerifyMFA:input_type -> auth.VerifyMFARequest
+	4, // 2: auth.MFAService.DisableMFA:input_type -> auth.DisableMFARequest
+	1, // 3: auth.MFAService.EnableMFA:output_type -> auth.EnableMFAResponse
+	3, // 4: auth.MFAService.VerifyMFA:output_type -> auth.VerifyMFAResponse
+	5, // 5: auth.MFAService.DisableMFA:output_type -> auth.DisableMFAResponse
 	3, // [3:6] is the sub-list for method output_type
 	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

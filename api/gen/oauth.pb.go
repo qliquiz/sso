@@ -4,7 +4,7 @@
 // 	protoc        v5.29.3
 // source: oauth.proto
 
-package oauth
+package auth
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -297,7 +297,7 @@ var File_oauth_proto protoreflect.FileDescriptor
 
 const file_oauth_proto_rawDesc = "" +
 	"\n" +
-	"\voauth.proto\x12\x05oauth\"\xa3\x01\n" +
+	"\voauth.proto\x12\x04auth\"\xa3\x01\n" +
 	"\x10AuthorizeRequest\x12\x1b\n" +
 	"\tclient_id\x18\x01 \x01(\tR\bclientId\x12!\n" +
 	"\fredirect_uri\x18\x02 \x01(\tR\vredirectUri\x12#\n" +
@@ -320,10 +320,10 @@ const file_oauth_proto_rawDesc = "" +
 	"token_type\x18\x02 \x01(\tR\ttokenType\x12\x1d\n" +
 	"\n" +
 	"expires_in\x18\x03 \x01(\x03R\texpiresIn\x12#\n" +
-	"\rrefresh_token\x18\x04 \x01(\tR\frefreshToken2\x82\x01\n" +
-	"\fOAuthService\x12>\n" +
-	"\tAuthorize\x12\x17.oauth.AuthorizeRequest\x1a\x18.oauth.AuthorizeResponse\x122\n" +
-	"\x05Token\x12\x13.oauth.TokenRequest\x1a\x14.oauth.TokenResponseB,Z*github.com/qliquiz/sso/api/gen/oauth;oauthb\x06proto3"
+	"\rrefresh_token\x18\x04 \x01(\tR\frefreshToken2~\n" +
+	"\fOAuthService\x12<\n" +
+	"\tAuthorize\x12\x16.auth.AuthorizeRequest\x1a\x17.auth.AuthorizeResponse\x120\n" +
+	"\x05Token\x12\x12.auth.TokenRequest\x1a\x13.auth.TokenResponseB*Z(github.com/qliquiz/sso/api/gen/auth;authb\x06proto3"
 
 var (
 	file_oauth_proto_rawDescOnce sync.Once
@@ -339,16 +339,16 @@ func file_oauth_proto_rawDescGZIP() []byte {
 
 var file_oauth_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_oauth_proto_goTypes = []any{
-	(*AuthorizeRequest)(nil),  // 0: oauth.AuthorizeRequest
-	(*AuthorizeResponse)(nil), // 1: oauth.AuthorizeResponse
-	(*TokenRequest)(nil),      // 2: oauth.TokenRequest
-	(*TokenResponse)(nil),     // 3: oauth.TokenResponse
+	(*AuthorizeRequest)(nil),  // 0: auth.AuthorizeRequest
+	(*AuthorizeResponse)(nil), // 1: auth.AuthorizeResponse
+	(*TokenRequest)(nil),      // 2: auth.TokenRequest
+	(*TokenResponse)(nil),     // 3: auth.TokenResponse
 }
 var file_oauth_proto_depIdxs = []int32{
-	0, // 0: oauth.OAuthService.Authorize:input_type -> oauth.AuthorizeRequest
-	2, // 1: oauth.OAuthService.Token:input_type -> oauth.TokenRequest
-	1, // 2: oauth.OAuthService.Authorize:output_type -> oauth.AuthorizeResponse
-	3, // 3: oauth.OAuthService.Token:output_type -> oauth.TokenResponse
+	0, // 0: auth.OAuthService.Authorize:input_type -> auth.AuthorizeRequest
+	2, // 1: auth.OAuthService.Token:input_type -> auth.TokenRequest
+	1, // 2: auth.OAuthService.Authorize:output_type -> auth.AuthorizeResponse
+	3, // 3: auth.OAuthService.Token:output_type -> auth.TokenResponse
 	2, // [2:4] is the sub-list for method output_type
 	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

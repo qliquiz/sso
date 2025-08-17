@@ -4,7 +4,7 @@
 // - protoc             v5.29.3
 // source: mfa.proto
 
-package mfa
+package auth
 
 import (
 	context "context"
@@ -19,9 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	MFAService_EnableMFA_FullMethodName  = "/mfa.MFAService/EnableMFA"
-	MFAService_VerifyMFA_FullMethodName  = "/mfa.MFAService/VerifyMFA"
-	MFAService_DisableMFA_FullMethodName = "/mfa.MFAService/DisableMFA"
+	MFAService_EnableMFA_FullMethodName  = "/auth.MFAService/EnableMFA"
+	MFAService_VerifyMFA_FullMethodName  = "/auth.MFAService/VerifyMFA"
+	MFAService_DisableMFA_FullMethodName = "/auth.MFAService/DisableMFA"
 )
 
 // MFAServiceClient is the client API for MFAService service.
@@ -176,7 +176,7 @@ func _MFAService_DisableMFA_Handler(srv interface{}, ctx context.Context, dec fu
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var MFAService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "mfa.MFAService",
+	ServiceName: "auth.MFAService",
 	HandlerType: (*MFAServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

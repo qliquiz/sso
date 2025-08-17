@@ -4,7 +4,7 @@
 // - protoc             v5.29.3
 // source: oauth.proto
 
-package oauth
+package auth
 
 import (
 	context "context"
@@ -19,8 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	OAuthService_Authorize_FullMethodName = "/oauth.OAuthService/Authorize"
-	OAuthService_Token_FullMethodName     = "/oauth.OAuthService/Token"
+	OAuthService_Authorize_FullMethodName = "/auth.OAuthService/Authorize"
+	OAuthService_Token_FullMethodName     = "/auth.OAuthService/Token"
 )
 
 // OAuthServiceClient is the client API for OAuthService service.
@@ -142,7 +142,7 @@ func _OAuthService_Token_Handler(srv interface{}, ctx context.Context, dec func(
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var OAuthService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "oauth.OAuthService",
+	ServiceName: "auth.OAuthService",
 	HandlerType: (*OAuthServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

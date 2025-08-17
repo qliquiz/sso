@@ -4,7 +4,7 @@
 // 	protoc        v5.29.3
 // source: jwk.proto
 
-package jwk
+package auth
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -189,20 +189,20 @@ var File_jwk_proto protoreflect.FileDescriptor
 
 const file_jwk_proto_rawDesc = "" +
 	"\n" +
-	"\tjwk.proto\x12\x03jwk\"\x10\n" +
-	"\x0eGetJWKSRequest\"/\n" +
-	"\x0fGetJWKSResponse\x12\x1c\n" +
-	"\x04keys\x18\x01 \x03(\v2\b.jwk.JWKR\x04keys\"i\n" +
+	"\tjwk.proto\x12\x04auth\"\x10\n" +
+	"\x0eGetJWKSRequest\"0\n" +
+	"\x0fGetJWKSResponse\x12\x1d\n" +
+	"\x04keys\x18\x01 \x03(\v2\t.auth.JWKR\x04keys\"i\n" +
 	"\x03JWK\x12\x10\n" +
 	"\x03kid\x18\x01 \x01(\tR\x03kid\x12\x10\n" +
 	"\x03kty\x18\x02 \x01(\tR\x03kty\x12\x10\n" +
 	"\x03alg\x18\x03 \x01(\tR\x03alg\x12\x10\n" +
 	"\x03use\x18\x04 \x01(\tR\x03use\x12\f\n" +
 	"\x01n\x18\x05 \x01(\tR\x01n\x12\f\n" +
-	"\x01e\x18\x06 \x01(\tR\x01e2B\n" +
+	"\x01e\x18\x06 \x01(\tR\x01e2D\n" +
 	"\n" +
-	"JWKService\x124\n" +
-	"\aGetJWKS\x12\x13.jwk.GetJWKSRequest\x1a\x14.jwk.GetJWKSResponseB(Z&github.com/qliquiz/sso/api/gen/jwk;jwkb\x06proto3"
+	"JWKService\x126\n" +
+	"\aGetJWKS\x12\x14.auth.GetJWKSRequest\x1a\x15.auth.GetJWKSResponseB*Z(github.com/qliquiz/sso/api/gen/auth;authb\x06proto3"
 
 var (
 	file_jwk_proto_rawDescOnce sync.Once
@@ -218,14 +218,14 @@ func file_jwk_proto_rawDescGZIP() []byte {
 
 var file_jwk_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_jwk_proto_goTypes = []any{
-	(*GetJWKSRequest)(nil),  // 0: jwk.GetJWKSRequest
-	(*GetJWKSResponse)(nil), // 1: jwk.GetJWKSResponse
-	(*JWK)(nil),             // 2: jwk.JWK
+	(*GetJWKSRequest)(nil),  // 0: auth.GetJWKSRequest
+	(*GetJWKSResponse)(nil), // 1: auth.GetJWKSResponse
+	(*JWK)(nil),             // 2: auth.JWK
 }
 var file_jwk_proto_depIdxs = []int32{
-	2, // 0: jwk.GetJWKSResponse.keys:type_name -> jwk.JWK
-	0, // 1: jwk.JWKService.GetJWKS:input_type -> jwk.GetJWKSRequest
-	1, // 2: jwk.JWKService.GetJWKS:output_type -> jwk.GetJWKSResponse
+	2, // 0: auth.GetJWKSResponse.keys:type_name -> auth.JWK
+	0, // 1: auth.JWKService.GetJWKS:input_type -> auth.GetJWKSRequest
+	1, // 2: auth.JWKService.GetJWKS:output_type -> auth.GetJWKSResponse
 	2, // [2:3] is the sub-list for method output_type
 	1, // [1:2] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
