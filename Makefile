@@ -18,6 +18,7 @@ clean:
 
 proto:
 	@echo "generating proto files..."
+	@mkdir api/gen
 	@protoc \
 		-I api/proto \
 		api/proto/*.proto \

@@ -1,6 +1,6 @@
 syntax = "proto3";
 package auth;
-option go_package = "github.com/qliquiz/sso2/api/gen/auth;auth";
+option go_package = "github.com/qliquiz/sso/api/gen/auth;auth";
 
 service AuthService {
   rpc Register(RegisterRequest) returns (RegisterResponse);
