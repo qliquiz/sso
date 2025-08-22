@@ -68,13 +68,6 @@
 ### Архитектура:
 ```
 .
-├── api
-│   └── proto
-│       ├── admin.proto
-│       ├── auth.proto
-│       ├── jwk.proto
-│       ├── mfa.proto
-│       └── oauth.proto
 ├── cmd
 │   ├── migrator/main.go
 │   └── sso/main.go
